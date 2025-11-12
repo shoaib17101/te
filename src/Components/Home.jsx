@@ -46,14 +46,16 @@ export default function Home() {
 export function Hero() {
   
     return (
-        <section className={`flex flex-col md:flex-row h-[70vh] items-center  md:pl-24 py-5  w-full bg-center bg-cover  `} style={{ backgroundImage: `url('${bg1}')` }} >
+        <section className={`flex flex-col md:flex-row h-[70vh] items-center  md:pl-24 py-5   w-full bg-center bg-cover  `} style={{ backgroundImage: `url('${bg1}')` }} >
             <div className="flex flex-col md:w-1/3 md:items-start gap-6 items-center">
                 <span className="bg-red-400  text-white font-bold text-lg p-1">Best Prices</span>
                 <h1 className="font-bold md:text-6xl text-4xl text-center md:text-left">
                     Incredible Prices on All Your Favorite Items
                 </h1>
                 <p className="text-lg">Get more for less on selected brands</p>
-                <button className="btn btn-primary p-6 rounded-full w-[220px]">Shop Now</button>
+                <Link to='shop/all' >
+                <button className="btn btn-primary p-6 rounded-full w-[220px]">Shop Now</button>               
+                </Link>
             </div>
         </section>
     )
@@ -62,17 +64,21 @@ export function Hero() {
 export function Features() {
     return (
         <section className="flex flex-col md:flex-row p-2 gap-4  w-full  ">
-            <div className="flex p-30 gap-3 md:w-1/2  md:h-[468px] text-white flex-col  bg-[url('https://static.wixstatic.com/media/c22c23_e140bfa8cd6f4cb2ac5ee6e204f64073~mv2.jpg/v1/fill/w_868,h_468,al_t,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c22c23_e140bfa8cd6f4cb2ac5ee6e204f64073~mv2.jpg')] bg-cover bg-center ">
+            <div className="flex px-5  p-30 gap-3 md:w-1/2  md:h-[468px] text-white flex-col  bg-[url('https://static.wixstatic.com/media/c22c23_e140bfa8cd6f4cb2ac5ee6e204f64073~mv2.jpg/v1/fill/w_868,h_468,al_t,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c22c23_e140bfa8cd6f4cb2ac5ee6e204f64073~mv2.jpg')] bg-cover bg-center ">
                 <p className="text-lg">Holiday Deal</p>
                 <h1 className="text-5xl font-bold lg:w-1/3 ">Upto 30% off</h1>
                 <p className="text-lg">Selected Smartphone Brand</p>
+                 <Link to={'shop/all'}>
                 <button className="btn btn-primary bg-white text-black  rounded-full w-[200px] border-0 mt-4">Shop Now</button>
+                 </Link>
             </div>
-            <div className="flex  p-30 gap-3 md:w-1/2 md:h-[468px] text-white flex-col  bg-[url('https://static.wixstatic.com/media/c837a6_d84a631864a442a496670bc2d787c6a0~mv2.jpg/v1/fill/w_868,h_468,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_d84a631864a442a496670bc2d787c6a0~mv2.jpg')] bg-cover bg-center ">
+            <div className="flex px-5  p-30 gap-3 md:w-1/2 md:h-[468px] text-white flex-col  bg-[url('https://static.wixstatic.com/media/c837a6_d84a631864a442a496670bc2d787c6a0~mv2.jpg/v1/fill/w_868,h_468,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_d84a631864a442a496670bc2d787c6a0~mv2.jpg')] bg-cover bg-center ">
                 <p className="text-lg">Just In </p>
                 <h1 className="text-5xl font-bold lg:w-1/2">Take Your Sound Anywhere</h1>
                 <p className="text-lg">Top Headphone Brands</p>
+                 <Link to={'shop/all'}>
                 <button className="btn btn-primary bg-white text-black  rounded-full w-[200px] border-0 mt-4">Shop Now</button>
+                 </Link>
             </div>
         </section>
     )
@@ -103,21 +109,24 @@ const bestsellers = Products.filter(pr => pr.collection.includes('Best Sellers')
 
 export function Sellings() {
     const productdetail = bestsellers.map((pr) => (
-
+        <Link to={`prdetail/${pr.handleId}`}>
         <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3   border border-gray-300 rounded-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
         </div>
+        </Link>
     ))
 
     return (
-        <section className="flex flex-col items-center p-10  py-10 m-5 gap-5 bg-white my-5">
+        <section className="flex flex-col items-center p-10  m-5 gap-5 bg-white my-5">
             <h1 className="text-4xl font-bold">Best Sellers</h1>
-            <div className="grid md:grid-cols-6 gap-4 w-full py-10 ">
+            <div className="grid  md:grid-cols-6 gap-4 w-full py-10 ">
                 {productdetail}
             </div>
+             <Link to={'shop/best seller'}>
             <button className="btn btn-primary text-lg p-5 w-[250px] rounded-full bg-blue-500 text-white">View All</button>
+             </Link>
         </section>
     )
 
@@ -128,7 +137,6 @@ export function Categories() {
     const speakers = Products.filter(pr => pr.collection === 'Speakers').slice(0, 1);
     const phone = Products.filter(pr => pr.collection === 'Mobile').slice(0, 1);
     const headphone = Products.filter(pr => pr.collection === 'Headphones').slice(0, 1);
-
     const drone = Products.filter(pr => pr.collection.includes('Drones & Cameras')).slice(6, 7);
     const TV = Products.filter(pr => pr.collection.includes('TV')).slice(0, 1);
     const computers = Products.filter(pr => pr.collection === 'Computers').slice(3, 4);
@@ -143,64 +151,93 @@ export function Categories() {
             <h1 className="text-4xl font-bold">Shop By Category</h1>
             <div className="grid md:grid-cols-3 lg:grid-cols-5 py-10 gap-5">
                 {cats.map((cat) => (
+                    <Link to={`shop/tablets`}>
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">{cat.collection}</h2>
                     </div>
+
+                    </Link>
                 ))}
                 {speakers.map((cat) => (
+                    <Link to={'shop/speaker'}>
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">{cat.collection}</h2>
                     </div>
+                    </Link>
                 ))}
                 {phone.map((cat) => (
+                     <Link to={'shop/mobile'}>
+
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">{cat.collection}</h2>
                     </div>
+                     </Link>
                 ))}
                 {TV.map((cat) => (
+                     <Link to={'shop/tv'}>
+
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">TV</h2>
                     </div>
+                     </Link>
                 ))}
                 {computers.map((cat) => (
+                     <Link to={'shop/computer'}>
+
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">{cat.collection}</h2>
                     </div>
+                     </Link>
                 ))}
                 {headphone.map((cat) => (
+                     <Link to={'shop/headphones'}>
+
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">{cat.collection}</h2>
                     </div>
+                     </Link>
                 ))}
                 {drone.map((cat) => (
+                     <Link to={'shop/drones & cameras'}>
+
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">{cat.collection}</h2>
                     </div>
+                     </Link>
                 ))}
                 {watches.map((cat) => (
+                     <Link to={'shop/wearable tech'}>
+
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">{cat.collection}</h2>
                     </div>
+                     </Link>
                 ))}
                 {sale.map((cat) => (
+                    <Link to={'shop/sale'}>
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">{cat.collection.split(';')[0]}</h2>
                     </div>
+
+                    </Link>
                 ))}
                 {bestsellers.map((cat) => (
+                    <Link to={'shop/best seller'}>
+
                     <div key={cat.handleId} className="flex flex-col items-center    rounded-full p-5  ">
                         <img src={"https://static.wixstatic.com/media/" + cat.productImageUrl} alt="" className="hover:scale-104 shadow-sm shadow-black rounded-full transition-all duration-300" />
                         <h2 className="font-bold text-lg mt-4">{cat.collection.split(';')[2]}</h2>
                     </div>
+                    </Link>
                 ))}
               
                 
@@ -216,7 +253,7 @@ export function BestPrice() {
 
     return (
         <section className="flex md:flex-row flex-col overflow-hidden gap-10  md:h-[500px] bg-white m-5">
-            <img className="md:w-2/3 transform  -translate-x-10 origin-right skew-x-10" src="https://static.wixstatic.com/media/c837a6_42dd66a436e846648736f4bc9546bf14~mv2.png/v1/fill/w_1775,h_600,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_42dd66a436e846648736f4bc9546bf14~mv2.png" alt="" />
+            <img className="md:w-2/3 md:transform  md:-translate-x-10 origin-right md:skew-x-10" src="https://static.wixstatic.com/media/c837a6_42dd66a436e846648736f4bc9546bf14~mv2.png/v1/fill/w_1775,h_600,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/c837a6_42dd66a436e846648736f4bc9546bf14~mv2.png" alt="" />
             <div className="flex flex-col justify-center items-center py-1.5 md:items-start md:w-1/3  gap-5">
                 <h1 className="text-3xl font-bold">
                     Save up to
@@ -227,7 +264,9 @@ export function BestPrice() {
                     & tablets brands
                 </h1>
                 <p>Terms and conditions apply</p>
-                <button className="btn btn-primary rounded-full p-5 bg-purple-500 w-1/2 text-white">Shop</button>
+                 <Link to={'shop/computer'} className="w-full">
+                <button className="btn btn-primary rounded-full p-5 bg-purple-500 w-1/2 px-10  text-white">Shop</button>
+                 </Link>
             </div>
         </section>
     )
@@ -240,7 +279,7 @@ export function Sales() {
             <span className="bg-red-600  text-white px-3 font-light rounded-full">{pr.ribbon}</span>
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
-            <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
+            <h2 className="text-lg font-bold text-blue-500 " ><strike>{pr.price}</strike> {pr.price-pr.discountValue}$</h2>
         </div>
     ))
 
@@ -250,7 +289,9 @@ export function Sales() {
             <div className="grid md:grid-cols-3 lg:grid-cols-6  gap-4 px-10 w-full py-10 ">
                 {saleproducts}
             </div>
+             <Link to={'shop/sale'}>
             <button className="btn btn-primary text-lg p-5 w-[250px] rounded-full bg-blue-500 text-white">View All</button>
+             </Link>
         </section>
     )
 
@@ -269,7 +310,9 @@ export function TodaySpecial() {
                     on professional camera drones
                 </h1>
                 <p>Terms and conditions apply</p>
-                <button className="btn btn-primary rounded-full p-5 bg-purple-500 w-1/2 text-white">Shop</button>
+                 <Link to={'shop/drones & cameras'} className="w-full">
+                <button className="btn btn-primary rounded-full p-5 bg-purple-500 w-2/5 text-white">Shop</button>
+                 </Link>
             </div>
         </section>
     )
@@ -282,16 +325,16 @@ export function Logos(){
                 <div className="border border-gray-300 p-5 lg:p-20">
                     <h1 className="lg:text-5xl text-3xl uppercase italic font-bold text-gray-500">Zodiac</h1>
                 </div>
-                 <div className="border  border-gray-300 lg:p-20">
+                 <div className="border  border-gray-300 p-5  lg:p-20">
                     <h1 className="lg:text-5xl text-3xl uppercase italic font-bold text-gray-500">zoro</h1>
                 </div>
-                 <div className="border  border-gray-300 lg:p-20">
+                 <div className="border  border-gray-300 p-5  lg:p-20">
                     <h1 className="lg:text-5xl text-3xl uppercase italic font-bold text-gray-500">pjx</h1>
                 </div>
-                 <div className="border  border-gray-300 lg:p-20">
+                 <div className="border  border-gray-300 p-5  lg:p-20">
                     <h1 className="lg:text-5xl text-3xl uppercase italic font-bold text-gray-500">horizon</h1>
                 </div>
-                 <div className="border  border-gray-300 lg:p-20">
+                 <div className="border  border-gray-300  p-5 lg:p-20">
                     <h1 className="lg:text-5xl text-3xl uppercase italic font-bold text-gray-500">gxl</h1>
                 </div>
             </div>

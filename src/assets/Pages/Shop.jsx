@@ -22,10 +22,10 @@ return (
 
     <section className="flex flex-col items-center p-10  py-10 m-5 gap-5 my-5">
         <h1 className="text-4xl font-bold capitalize">{category}</h1>
-        <div className="grid md:grid-cols-6 gap-4 w-full py-10 ">
-            {category=='all' && Products.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-lg ">
-            <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
+        <div className="grid md:grid-cols-5  w-full py-10 ">
+            {category=='all'  && Products.map((pr)=>(
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    ">
+            <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 rounded-t-lg transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
         </div>
@@ -33,7 +33,7 @@ return (
             }
             
             {category=='mobile' && mobile.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-t-lg">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
@@ -41,7 +41,7 @@ return (
             ))
             }
             {category=='tablets' && tablet.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-t-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
@@ -49,7 +49,7 @@ return (
             ))
             }
             {category=='headphones' && headphone.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-t-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
@@ -57,7 +57,7 @@ return (
             ))
             }
             {category=='wearable tech' && watches.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-t-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
@@ -65,7 +65,7 @@ return (
             ))
             }
             {category=='drones & cameras' && drone.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3   rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3   rounded-t-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
@@ -73,7 +73,7 @@ return (
             ))
             }
             {category=='computer' && computers.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3   rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3   rounded-t-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
@@ -81,7 +81,7 @@ return (
             ))
             }
             {category=='best seller' && bestsellers.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3   rounded-t-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
@@ -89,7 +89,7 @@ return (
             ))
             }
             {category=='sale' && sale.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3   rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3   rounded-t-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
@@ -97,7 +97,7 @@ return (
             ))
             }
             {category=='speaker' && speakers.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-t-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
@@ -105,7 +105,7 @@ return (
             ))
             }
             {category=='tv' && TV.map((pr)=>(
-                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-lg ">
+                <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3    rounded-t-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
             <h2 className="text-lg font-bold text-blue-500 " >{pr.price}$</h2>
