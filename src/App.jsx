@@ -16,6 +16,7 @@ export default function App() {
     <Route path="/prdetail" element={<ProductDetailPage />} />
     <Route path="/prdetail/:handleId" element={<ProductDetailPage />} />
 
+
   </Routes>
   </HashRouter>
     </>

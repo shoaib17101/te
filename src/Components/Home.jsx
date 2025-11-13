@@ -109,7 +109,7 @@ const bestsellers = Products.filter(pr => pr.collection.includes('Best Sellers')
 
 export function Sellings() {
     const productdetail = bestsellers.map((pr) => (
-        <Link to={`prdetail/${pr.handleId}`}>
+        <Link to={`/prdetail/${pr.handleId}`}>
         <div key={pr.handleId} className="flex flex-col  items-start justify-between  p-3   border border-gray-300 rounded-lg ">
             <img src={"https://static.wixstatic.com/media/" + pr.productImageUrl} alt="" className="hover:scale-104 transition-all duration-300" />
             <h2 className="font-bold text-lg">{pr.name}</h2>
