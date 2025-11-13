@@ -27,7 +27,9 @@ export default function Home() {
                         <FaSearch size={15} color="black" />
                         <img src="https://cdn-icons-png.flaticon.com/128/3177/3177440.png" className="md:w-8 hidden md:block" alt="" />
                         <img src="https://cdn-icons-png.flaticon.com/128/1077/1077035.png" className="w-5 hidden md:block" alt="" />
+                        <Link to={`/checkout`}>
                         <FaShoppingCart size={20} color="black" />
+                        </Link>
                     </div>
                 </div>
                 <div className="bg-gray-100 p-2 hidden md:block">
@@ -46,7 +48,7 @@ export default function Home() {
 export function Hero() {
   
     return (
-        <section className={`flex flex-col md:flex-row h-[70vh] items-center  md:pl-24 py-5   w-full bg-center bg-cover  `} style={{ backgroundImage: `url('${bg1}')` }} >
+        <section className={`flex flex-col md:flex-row h-[70vh] items-center  md:pl-24 py-5 bg-fixed   w-full bg-center bg-cover  `} style={{ backgroundImage: `url('${bg1}')` }} >
             <div className="flex flex-col md:w-1/3 md:items-start gap-6 items-center">
                 <span className="bg-red-400  text-white font-bold text-lg p-1">Best Prices</span>
                 <h1 className="font-bold md:text-6xl text-4xl text-center md:text-left">
@@ -63,7 +65,7 @@ export function Hero() {
 }
 export function Features() {
     return (
-        <section className="flex flex-col md:flex-row p-2 gap-4  w-full  ">
+        <section className="flex flex-col md:flex-row p-2 gap-4  w-full bg-fixed ">
             <div className="flex px-5  p-30 gap-3 md:w-1/2  md:h-[468px] text-white flex-col  bg-[url('https://static.wixstatic.com/media/c22c23_e140bfa8cd6f4cb2ac5ee6e204f64073~mv2.jpg/v1/fill/w_868,h_468,al_t,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c22c23_e140bfa8cd6f4cb2ac5ee6e204f64073~mv2.jpg')] bg-cover bg-center ">
                 <p className="text-lg">Holiday Deal</p>
                 <h1 className="text-5xl font-bold lg:w-1/3 ">Upto 30% off</h1>
@@ -119,7 +121,7 @@ export function Sellings() {
     ))
 
     return (
-        <section className="flex flex-col items-center p-10  m-5 gap-5 bg-white my-5">
+        <section className="flex flex-col items-center p-10  m-5 gap-5 bg-white my-5 bg-fixed">
             <h1 className="text-4xl font-bold">Best Sellers</h1>
             <div className="grid  md:grid-cols-6 gap-4 w-full py-10 ">
                 {productdetail}
